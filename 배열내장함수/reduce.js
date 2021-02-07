@@ -48,3 +48,14 @@ console.log(max)
 
 const mini = a.reduce((acc, current) => (acc < current ? acc : current))
 console.log(mini)
+
+// 비동기 프로그래밍
+const promiseFactory = time => {
+  return new Promise((resolve, reject) => {
+    console.log(time)
+    setTimeout(resolve, time)
+  })
+}
+;[1000, 2000, 3000, 4000].reduce((acc, cur) => {
+  return acc.then(() => promiseFactory(cur))
+}, Promise.resolve())
