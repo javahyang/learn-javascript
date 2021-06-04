@@ -59,3 +59,6 @@ const promiseFactory = time => {
 ;[1000, 2000, 3000, 4000].reduce((acc, cur) => {
   return acc.then(() => promiseFactory(cur))
 }, Promise.resolve())
+
+
+// 배열의 마지막 요소부터 반복문 실행하는 reduceRight
